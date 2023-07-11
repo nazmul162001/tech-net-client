@@ -1,9 +1,6 @@
-import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react';
+import { api } from '@/redux/api/apiSlice';
 
-export const api = createApi({
-  reducerPath: 'api',
-  baseQuery: fetchBaseQuery({ baseUrl: 'http://localhost:5000' }),
-  tagTypes: ['comments'],
+const productApi = api.injectEndpoints({
   endpoints: (builder) => ({
     getProducts: builder.query({
       query: () => '/products',
@@ -27,8 +24,8 @@ export const api = createApi({
 });
 
 export const {
-  useGetProductsQuery,
-  useSingleProductQuery,
-  usePostCommentMutation,
   useGetCommentQuery,
-} = api;
+  useGetProductsQuery,
+  usePostCommentMutation,
+  useSingleProductQuery,
+} = productApi;
