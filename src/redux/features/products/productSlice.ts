@@ -24,6 +24,6 @@ const productSlice = createSlice({
   },
 });
 
-export const {setPriceRange, toggleState} = productSlice.actions
+export const { toggleState, setPriceRange } = productSlice.actions;
 
 export default productSlice.reducer;
